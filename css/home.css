@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'Pretendard Variable';
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url('font/woff2/PretendardVariable.woff2') format('woff2-variations');
+}
+
+.top-page {
+  width: 100vw;
+}
+
+#menu {
+  position: fixed;
+  width: 270px;
+  height: 100%;
+  background-color: #eee;
+}
+
+#menu>.menu-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 210px;
+  margin: 30px auto;
+}
+
+#menu>.menu-bar>.menu-logo {
+  width: 120px;
+  height: 53px;
+}
+
+#menu>.menu-bar>.menu-logo>img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#gnb,
+#gnb>.top-menu,
+#gnb>.bottom-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+#gnb,
+#gnb>.top-menu {
+  gap: 30px;
+}
+
+#gnb>.bottom-menu {
+  gap: 20px;
+}
+
+#gnb {
+  padding-top: 59px;
+  color: #333;
+}
+
+#gnb>.top-menu>a {
+  display: flex;
+  gap: 10px;
+  height: 26px;
+  align-items: center;
+}
+
+#gnb>.top-menu>a>i {
+  font-size: 24px;
+}
+
+#gnb>.top-menu>a>span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#gnb>.bottom-menu>a {
+  display: flex;
+  gap: 10px;
+  height: 20px;
+  align-items: center;
+}
+
+#gnb>.bottom-menu>a>i {
+  font-size: 20px;
+}
+
+#gnb>hr {
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: #777;
+}
+
+#gnb>.bottom-menu>a>span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#content {
+  padding-left: 271px;
+}
+
+#content>header {
+  width: 100%;
+}
+
+#content>header>.search-bar {
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar>.wrap {
+  height: 60px;
+  flex: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar>.wrap>.searching {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #efefef;
+  border-radius: 8px;
+  margin: 0  10px;
+}
+
+.search-bar>.wrap>.searching>#search {
+  flex: 1;
+  font-size: 20px;
+}
+
+.search-bar>.wrap>.searching>.search-bar-btn-search {
+  font-size: 24px;
+  color: #EE2E24;
+  font-weight: 800;
+  padding-left: 10px;
+}
+
+.search-bar>.wrap>.searching>.search-bar-btn-clear {
+  font-size: 15px;
+  color: #333;
+  padding-right: 10px;
+}
+
+.search-bar>.btns {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar>.btns>.btn-ticket,
+.search-bar>.btns>.btn-noti,
+.search-bar>.btns>.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar>.btns>a {
+  padding: 10px;
+}
+
+.search-bar>.btns>a>i {
+  font-size: 24px;
+  color: #EE2E24;
+  padding-right: 10px;
+}
+
+.search-bar>.btns>a>span {
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
