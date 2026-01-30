@@ -18,7 +18,7 @@ input {
 }
 
 .top-page {
-  width: 100vw;
+  width: 100%;
   padding-bottom: 10px;
 }
 
@@ -39,12 +39,19 @@ input {
   margin: 30px auto;
 }
 
-#menu>.menu-bar>.menu-logo {
+#menu .menu-bar .menu-logo {
+  display: block;
   width: 120px;
   height: 53px;
 }
 
-#menu>.menu-bar>.menu-logo>img {
+#menu .menu-bar .menu-logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#menu .menu-bar .menu-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -120,10 +127,8 @@ input {
 
 #content {
   padding-left: 270px;
-}
-
-#content>header {
-  width: 100%;
+  width: auto;
+  background-color: #fdfdfd;
 }
 
 #content>header>.search-bar {
@@ -156,6 +161,8 @@ input {
 .search-bar>.wrap>.searching>#search {
   flex: 1;
   font-size: 18px;
+  color: #333;
+  min-width: 50px;     /* 최소한의 폭은 유지 */
 }
 
 .search-bar>.wrap>.searching>.search-bar-btn-search {
@@ -172,6 +179,8 @@ input {
   padding-right: 10px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap; /* 글자가 줄바꿈되지 않게 함 */
+  flex-shrink: 0;      /* 공간이 부족해도 폭이 줄어들지 않음 */
 }
 
 .search-bar>.btns {
@@ -203,6 +212,17 @@ input {
   font-weight: 600;
 }
 
+/* 티켓, 알림, 로그인 글자 숨기기 (반응형) */
+@media (max-width: 1000px) { /* 브라우저 폭이 1000px 이하일 때 */
+  .search-bar>.btns>a>span {
+    display: none; /* 글자만 숨김 */
+  }
+  .search-bar>.btns>a>i {
+    padding-right: 0; /* 아이콘 여백 조정 */
+    font-size: 28px;  /* 아이콘을 조금 더 크게 강조 가능 */
+  }
+}
+
 #banners {
   position: relative;
 }
@@ -211,22 +231,41 @@ input {
   display: flex;
   gap: 30px;
   overflow: hidden;
-  height: 740px;
-  padding: 0 0 0 10px;
+  /* height: 740px; */
+  /* padding: 0 0 0 10px; */
+  height: auto;
+  padding: 0 0 40px 10px; /* dots(점)가 들어갈 공간을 위해 하단 패딩 추가 */
 }
 
 .banner {
   position: relative;
-  width: 1240px;
+  /* width: 1240px; */
   flex-shrink: 0;
-  height: 698px;
+  /* height: 698px; */
   overflow: hidden;
+  /* 고정 높이를 제거하고 비율로 설정 */
+  width: 100%;       /* 부모 너비에 맞춤 */
+  max-width: 1240px; /* 배너가 무한정 넓어지는 것을 방지 */
+  max-height: 698px;    /* 화면을 너무 많이 차지하지 않도록 높이 상한선 설정 */
+  min-height: 393px;    /* 393px이 되는 순간 멈춤 */
+  height: auto;      /* 고정 높이 제거 */
+  aspect-ratio: 16 / 9; /* 16:9 비율 유지하며 유연하게 높이 조절 */
 }
 
-.banner-img {
+/* .banner-img {
   position: absolute;
   width: 1240px;
   height: 698px;
+} */
+
+/* 1. 이미지 컨테이너: 배너 박스를 꽉 채우도록 */
+.banner-img {
+  position: absolute; /* .banner를 기준으로 꽉 채움 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .banner-img::after {
@@ -246,42 +285,72 @@ input {
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+  /* 2. 실제 이미지: 컨테이너에 맞춰 비율 유지 */
+  display: block;
 }
 
+.banner-img, .banner-img>img {
+  width: 100%;
+  height: 100%;
+  position: relative; /* absolute 대신 사용하거나 구조에 맞게 조정 */
+  object-fit: cover;    /* 높이가 고정되어도 이미지가 비율에 맞게 꽉 참 */
+  object-position: center; /* 이미지의 중심을 기준으로 보여줌 */
+}
+
+/* 3. 텍스트: 이미지보다 위에 오도록 z-index 설정 */
 .banner-text {
   position: absolute;
-  bottom: 30px;
+  /* bottom: 30px; */
+  bottom: 5%; /* px 대신 %를 쓰면 높이가 줄어들 때 같이 올라옵니다 */
   left: 30px;
+  z-index: 2;
 }
 
 .banner-text>.banner-text-name {
   color: #fdfdfd;
-  font-size: 64px;
+  /* font-size: 64px; */
+  /* 글자 크기도 브라우저 폭에 따라 줄어들게 (vw 단위 활용) */
+  font-size: clamp(32px, 5vw, 64px); /* 최소 32px, 폭의 5%, 최대 64px */
   font-weight: bold;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+  /* 글자가 64px일 땐 여백이 12.8px, 글자가 32px로 줄면 여백도 6.4px가 됨 */
+  padding-bottom: 0.2em;
 }
 
 .banner-text>.banner-text-desc {
-  font-size: 24px;
+  /* font-size: 24px; */
   color: #ddd;
   font-weight: 600;
   line-height: 40px;
   margin: 10px 0;
+  /* 글자 크기도 브라우저 폭에 따라 줄어들게 (vw 단위 활용) */
+  font-size: clamp(14px, 2vw, 24px);
 }
 
 .banner-text>.ticketing-btn {
   background-color: #FF5B5B;
   border-radius: 8px;
-  font-size: 18px;
+  /* font-size: 18px; */
+  /* 1. 폰트 크기: 브라우저 폭에 반응 */
+  font-size: clamp(0.875rem, 1.2vw, 1.125rem);
   color: #fdfdfd;
-  padding: 15px 20px;
-  margin: 20px 0 43px;
+  /* padding: 15px 20px; */
+  /* 2. 패딩(안쪽 여백): 상하/좌우 여백을 유연하게 조절 */
+  padding: clamp(0.6rem, 1vw, 0.9rem) clamp(1rem, 2vw, 1.5rem);
+  /* margin: 20px 0 43px; */
+  /* margin-top: 0.5em; 글자 크기의 절반만큼 간격 유지 */
+  /* margin-bottom: 2.7rem; */
+  /* 3. 마진(바깥 여백): 위쪽 글자와의 간격도 유연하게 */
+  margin-top: clamp(0.938rem, 2vw, 1.25rem);
+  margin-bottom: clamp(1.5rem, 2vw, 2.87rem);
+  display: inline-block; /* 크기 변화가 잘 적용되도록 설정 */
+  white-space: nowrap;   /* 버튼 안의 글자가 줄바꿈되지 않게 고정 */
   cursor: pointer;
   transition: background-color .3s;
 }
 
 .banner-text>.ticketing-btn:hover {
-  background-color: #ff4c4c;
+  background-color: #EE2E24;
 }
 
 #banners .dots {
@@ -306,6 +375,7 @@ input {
 #now-showing {
   padding-top: 35px;
   height: 550px;
+  margin-left: 10px;
 }
 
 #now-showing>.now-showing-title {
@@ -315,7 +385,7 @@ input {
 }
 
 #now-showing>.now-showing-title>.title {
-  padding-left: 25px;
+  padding-left: 15px;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -333,7 +403,6 @@ input {
 #now-showing>.now-showing-container {
   display: flex;
   gap: 20px;
-  margin-left: 10px;
   margin-top: 10px;
 }
 
@@ -357,6 +426,7 @@ input {
 
 #now-showing>.now-showing-container>.movie>.movie-poster>img:hover {
   transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -464,7 +534,7 @@ input {
   transition: opacity .5s;
 }
 
-#trailers>.trailers-container>.trailer>.trailer-bg:hover::after {
+#trailers>.trailers-container>.trailer:hover>.trailer-bg::after {
   opacity: 0;
 }
 
@@ -501,6 +571,85 @@ input {
 #trailers>.trailers-container>.trailer>.trailer-text>span {
   font-size: 22px;
   color: #fdfdfd;
+}
+
+#trailers {
+  width: 100%;
+  height: auto; /* 고정 높이 해제 */
+  aspect-ratio: 31 / 12; /* 의도하신 비율*/
+  min-height: 450px; /* 너무 작아지는 것 방지 */
+  margin-left: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+#trailers>.trailers-background {
+  position: absolute;
+  width: 100%;
+  height: 100%; /* 부모 비율에 맞춤 */
+}
+
+#trailers>.trailers-container {
+  position: absolute;
+  right: 3.5%; /* 고정 px 대신 % 사용 */
+  top: 5%;
+  width: 30%; /* 화면 폭의 일정 비율 차지 */
+  min-width: 280px; /* 너무 작아지면 가독성이 떨어지므로 최소폭 설정 */
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+
+#trailers>.trailers-container>.trailer {
+  width: 100%; /* 부모(.trailers-container) 너비에 맞춤 */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+/* 트레일러 하단 텍스트 */
+#trailers>.trailers-container>.trailer>.trailer-text {
+  height: 20%; /* 고정 px 대신 비율 */
+  bottom: 5%;
+}
+
+#trailers>.trailers-container>.trailer>.trailer-text>span {
+  font-size: clamp(0.9rem, 1.5vw, 1.4rem); /* rem과 vw 조합 */
+  white-space: nowrap;
+}
+
+/* 재생 버튼 크기 */
+#trailers>.trailers-container>.trailer>.play-btn {
+  /* 화면 폭에 따라 버튼 크기 조절 */
+  width: clamp(35px, 4vw, 50px);
+  height: clamp(35px, 4vw, 50px);
+}
+
+#trailers>.trailers-container>.trailer>.play-btn>i {
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1; /* 중앙 정렬 유지 */
+}
+
+@media (max-width: 1024px) {
+  #trailers {
+    aspect-ratio: auto; /* 비율 해제 */
+    height: auto;
+  }
+  
+  #trailers>.trailers-container {
+    position: relative; /* absolute 해제 */
+    right: 0;
+    top: 0;
+    width: 95%;
+    margin: 20px auto;
+    flex-direction: row; /* 가로 슬라이드 형태로 변경 가능 */
+    overflow-x: auto;
+  }
+  
+  #trailers>.trailers-container>.trailer {
+    width: 250px; /* 모바일에서는 고정 크기로 가로 스크롤 */
+    flex-shrink: 0;
+  }
 }
 
 #events,
@@ -562,7 +711,7 @@ input {
 }
 
 .event:hover>.event-img>img,
-.offer:hover>.offer-img>img{
+.offer:hover>.offer-img>img {
   filter: saturate(100%) brightness(100%);
 }
 
