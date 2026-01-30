@@ -1,9 +1,9 @@
 @font-face {
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-weight: 45 920;
   font-style: normal;
   font-display: swap;
-  src: url("font/woff2/PretendardVariable.woff2") format("woff2-variations");
+  src: url('font/woff2/PretendardVariable.woff2') format('woff2-variations');
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 
 button,
 input {
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
 }
 
 .top-page {
@@ -222,6 +222,7 @@ input {
     padding-right: 0; /* 아이콘 여백 조정 */
     font-size: 28px; /* 아이콘을 조금 더 크게 강조 가능 */
   }
+  /* 미디어 쿼리는 나중에 배울 예정 */
 }
 
 #banners {
@@ -245,8 +246,10 @@ input {
   /* height: 698px; */
   overflow: hidden;
   /* 고정 높이를 제거하고 비율로 설정 */
-  width: 100%; /* 부모 너비에 맞춤 */
-  max-width: 1240px; /* 배너가 무한정 넓어지는 것을 방지 */
+  /* 본문 영역 전체(100%)에서 좌우 여백만 살짝 뺍니다. */
+  width: 80%;
+  /* max-width를 아예 주석 처리하거나 매우 크게 잡으세요. */
+  max-width: 1600px; /* 배너가 무한정 넓어지는 것을 방지 */
   max-height: 698px; /* 화면을 너무 많이 차지하지 않도록 높이 상한선 설정 */
   min-height: 393px; /* 393px이 되는 순간 멈춤 */
   height: auto; /* 고정 높이 제거 */
@@ -270,7 +273,7 @@ input {
 }
 
 .banner-img::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -522,7 +525,7 @@ input {
 }
 
 #trailers > .trailers-container > .trailer > .trailer-bg::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -792,7 +795,7 @@ input {
 }
 
 .exp-img::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
