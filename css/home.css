@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-no-scrollbar::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
 }
 
