@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 }
 
+no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 button,
 input {
   font-family: 'Pretendard Variable';
@@ -930,6 +934,7 @@ input {
 @media (max-width: 860px) {
   #menu {
     opacity: 0;
+    visibility: hidden;
   }
 
   #content {
