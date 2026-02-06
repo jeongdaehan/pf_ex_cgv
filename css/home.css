@@ -3,7 +3,7 @@
   font-weight: 45 920;
   font-style: normal;
   font-display: swap;
-  src: url('font/woff2/PretendardVariable.woff2') format('woff2-variations');
+  src: url('../font/woff2/PretendardVariable.woff2') format('woff2-variations');
 }
 
 body {
@@ -28,6 +28,7 @@ input {
   height: 100%;
   background-color: #eee;
   z-index: 99;
+  transition: 0.2s;
 }
 
 #menu > .menu-bar {
@@ -131,6 +132,26 @@ input {
   background-color: #fdfdfd;
 }
 
+#bar-mobile {
+  display: none;
+}
+
+#bar-mobile > .menu-logo {
+  width: 54px;
+  height: 24px;
+}
+
+#bar-mobile > .menu-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+#bar-mobile > .menu-toggle-btn > i,
+#bar-mobile > .profile-btn > i {
+  font-size: 32px;
+  color: #ee2e24;
+}
+
 #content > header > .search-bar {
   height: 120px;
   display: flex;
@@ -210,19 +231,6 @@ input {
   font-size: 18px;
   color: #333;
   font-weight: 600;
-}
-
-/* 티켓, 알림, 로그인 글자 숨기기 (반응형) */
-@media (max-width: 1000px) {
-  /* 브라우저 폭이 1000px 이하일 때 */
-  .search-bar > .btns > a > span {
-    display: none; /* 글자만 숨김 */
-  }
-  .search-bar > .btns > a > i {
-    padding-right: 0; /* 아이콘 여백 조정 */
-    font-size: 28px; /* 아이콘을 조금 더 크게 강조 가능 */
-  }
-  /* 미디어 쿼리는 나중에 배울 예정 */
 }
 
 #banners {
@@ -480,19 +488,13 @@ input {
   width: 100%;
   height: 600px;
   margin-left: 10px;
+  margin-right: 10px;
   position: relative;
 }
 
 #trailers > .trailers-background {
   position: absolute;
-  width: 100%;
-  height: 590px;
-}
-
-#trailers > .trailers-background > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  background: url('../img/trailer/trailer-bg.png') center/cover;
   border-radius: 8px;
 }
 
@@ -508,20 +510,22 @@ input {
 #trailers > .trailers-container > .trailer {
   width: 450px;
   height: 253px;
-  position: relative;
+  position: absolute;
 }
 
 #trailers > .trailers-container > .trailer > .trailer-bg {
   width: 100%;
   height: 100%;
   position: absolute;
+  border-radius: 8px;
 }
 
-#trailers > .trailers-container > .trailer > .trailer-bg > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
+#trailers > .trailers-container > .trailer:nth-of-type(1) > .trailer-bg {
+  background: url('../img/trailer/trailer1.jpg') center/cover;
+}
+
+#trailers > .trailers-container > .trailer:nth-of-type(2) > .trailer-bg {
+  background: url('../img/trailer/trailer2.webp') center/cover;
 }
 
 #trailers > .trailers-container > .trailer > .trailer-bg::after {
@@ -632,28 +636,6 @@ input {
 #trailers > .trailers-container > .trailer > .play-btn > i {
   font-size: clamp(20px, 2.5vw, 32px);
   line-height: 1; /* 중앙 정렬 유지 */
-}
-
-@media (max-width: 1024px) {
-  #trailers {
-    aspect-ratio: auto; /* 비율 해제 */
-    height: auto;
-  }
-
-  #trailers > .trailers-container {
-    position: relative; /* absolute 해제 */
-    right: 0;
-    top: 0;
-    width: 95%;
-    margin: 20px auto;
-    flex-direction: row; /* 가로 슬라이드 형태로 변경 가능 */
-    overflow-x: auto;
-  }
-
-  #trailers > .trailers-container > .trailer {
-    width: 250px; /* 모바일에서는 고정 크기로 가로 스크롤 */
-    flex-shrink: 0;
-  }
 }
 
 #events,
@@ -908,4 +890,63 @@ input {
   font-size: 11px;
   line-height: 16px;
   letter-spacing: -0.5px;
+}
+
+@media (max-width: 1390px) {
+  #trailers {
+    aspect-ratio: auto; /* 비율 해제 */
+    height: auto;
+  }
+
+  #trailers > .trailers-background {
+    background: url('../img/trailer/trailer-banner-bg.jpg') center/cover;
+  }
+
+  #trailers > .trailers-container {
+    width: 100%;
+    top: 20%;
+    flex-direction: row; /* 가로 슬라이드 형태로 변경 가능 */
+    justify-content: center;
+    margin: auto;
+  }
+
+  #trailers > .trailers-container > .trailer {
+    width: 250px; /* 모바일에서는 고정 크기로 가로 스크롤 */
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* 브라우저 폭이 1000px 이하일 때 */
+  .search-bar > .btns > a > span {
+    display: none; /* 글자만 숨김 */
+  }
+  .search-bar > .btns > a > i {
+    padding-right: 0; /* 아이콘 여백 조정 */
+    font-size: 28px; /* 아이콘을 조금 더 크게 강조 가능 */
+  }
+}
+
+@media (max-width: 860px) {
+  #menu {
+    opacity: 0;
+  }
+
+  #content {
+    padding-left: 0;
+  }
+
+  #bar-mobile {
+    height: 56px;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  #content > header > .search-bar {
+    display: none;
+  }
 }
