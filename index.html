@@ -4,12 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>홈페이지</title>
+    <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/home.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
   </head>
 
   <body>
@@ -21,44 +19,53 @@
               <img src="img/CGV_logo.png" alt="CGV홈" />
             </a>
           </h1>
-          <div id="gnb">
+          <div class="gnb">
             <div class="top-menu">
               <a href="#"><i class="ti ti-movie"></i><span>영화</span></a>
-              <a href="#"
-                ><i class="ti ti-ticket"></i><span>예매&middot;예약</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-bubble-tea-2"></i><span>매점</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-message-circle"></i><span>씨네톡</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-calendar-check"></i><span>이벤트</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-carambola"></i><span>CGV VIP</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-map-pin"></i><span>상영관 위치</span></a
-              >
+              <a href="#"><i class="ti ti-ticket"></i><span>예매&middot;예약</span></a>
+              <a href="#"><i class="ti ti-bubble-tea-2"></i><span>매점</span></a>
+              <a href="#"><i class="ti ti-message-circle"></i><span>씨네톡</span></a>
+              <a href="#"><i class="ti ti-calendar-check"></i><span>이벤트</span></a>
+              <a href="#"><i class="ti ti-carambola"></i><span>CGV VIP</span></a>
+              <a href="#"><i class="ti ti-map-pin"></i><span>상영관 위치</span></a>
             </div>
             <hr />
             <div class="bottom-menu">
               <a href="#"><i class="ti ti-armchair"></i><span>특별관</span></a>
-              <a href="#"
-                ><i class="ti ti-monkeybar"></i><span>액티비티</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-polaroid"></i><span>포토플레이</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-chalkboard"></i><span>대관 문의</span></a
-              >
-              <a href="#"
-                ><i class="ti ti-shopping-bag"></i
-                ><span>씨네샵 &#47; 기프트카드</span></a
-              >
+              <a href="#"><i class="ti ti-monkeybar"></i><span>액티비티</span></a>
+              <a href="#"><i class="ti ti-polaroid"></i><span>포토플레이</span></a>
+              <a href="#"><i class="ti ti-chalkboard"></i><span>대관 문의</span></a>
+              <a href="#"><i class="ti ti-shopping-bag"></i><span>씨네샵 &#47; 기프트카드</span></a>
+              <a href="#"><i class="ti ti-disabled"></i><span>접근성</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu-mobile">
+        <div class="menu-bar">
+          <h1 class="menu-logo">
+            <a href="index.html">
+              <img src="img/CGV_logo.png" alt="CGV홈" />
+            </a>
+          </h1>
+          <div class="gnb">
+            <div class="top-menu">
+              <a href="#"><i class="ti ti-movie"></i><span>영화</span></a>
+              <a href="#"><i class="ti ti-ticket"></i><span>예매&middot;예약</span></a>
+              <a href="#"><i class="ti ti-bubble-tea-2"></i><span>매점</span></a>
+              <a href="#"><i class="ti ti-message-circle"></i><span>씨네톡</span></a>
+              <a href="#"><i class="ti ti-calendar-check"></i><span>이벤트</span></a>
+              <a href="#"><i class="ti ti-carambola"></i><span>CGV VIP</span></a>
+              <a href="#"><i class="ti ti-map-pin"></i><span>상영관 위치</span></a>
+            </div>
+            <hr />
+            <div class="bottom-menu">
+              <a href="#"><i class="ti ti-armchair"></i><span>특별관</span></a>
+              <a href="#"><i class="ti ti-monkeybar"></i><span>액티비티</span></a>
+              <a href="#"><i class="ti ti-polaroid"></i><span>포토플레이</span></a>
+              <a href="#"><i class="ti ti-chalkboard"></i><span>대관 문의</span></a>
+              <a href="#"><i class="ti ti-shopping-bag"></i><span>씨네샵 &#47; 기프트카드</span></a>
               <a href="#"><i class="ti ti-disabled"></i><span>접근성</span></a>
             </div>
           </div>
@@ -71,47 +78,29 @@
             <div class="menu-toggle-btn">
               <i class="ti ti-menu-2"></i>
             </div>
-            <div class="menu-logo">
-              <a href="index.html">
-                <img src="img/CGV_logo.png" alt="CGV홈" />
-              </a>
-            </div>
+            <a href="index.html" class="menu-logo">
+              <img src="img/CGV_logo.png" alt="CGV홈" />
+            </a>
             <div class="profile-btn">
               <i class="ti ti-user"></i>
             </div>
           </div>
-          <div class="search-bar">
-            <div class="wrap">
-              <form class="searching">
+
+          <div id="searching">
+            <div class="searching-wrap">
+              <form class="search-bar">
                 <button class="search-bar-btn-search" type="submit">
                   <i class="ti ti-search" aria-label="검색버튼"> </i>
                 </button>
-                <input
-                  id="search"
-                  name="search"
-                  type="text"
-                  placeholder="나를 설레게 만들 영화를 찾아보세요!"
-                />
-                <button
-                  class="search-bar-btn-clear"
-                  type="reset"
-                  aria-label="다시쓰기버튼"
-                >
-                  다시쓰기
-                </button>
+                <input id="search" name="search" type="text" placeholder="나를 설레게 만들 영화를 찾아보세요!" />
+                <button class="search-bar-btn-clear" type="reset" aria-label="다시쓰기버튼">다시쓰기</button>
               </form>
             </div>
 
             <div class="btns">
-              <a href="#" class="btn-ticket">
-                <i class="ti ti-ticket"></i><span>티켓</span>
-              </a>
-              <a href="#" class="btn-noti">
-                <i class="ti ti-bell"></i><span>알림</span>
-              </a>
-              <a href="#" class="btn-login">
-                <i class="ti ti-user"></i><span>로그인</span>
-              </a>
+              <a href="#" class="btn-ticket"> <i class="ti ti-ticket"></i><span>티켓</span> </a>
+              <a href="#" class="btn-noti"> <i class="ti ti-bell"></i><span>알림</span> </a>
+              <a href="#" class="btn-login"> <i class="ti ti-user"></i><span>로그인</span> </a>
             </div>
           </div>
         </header>
@@ -129,12 +118,12 @@
                   </div>
                   <div class="banner-text-desc">
                     <span
-                      >역대급 스케일과 액션, 오직 〈아바타〉만이 선사할 압도적
-                      시네마틱 경험을 반드시 극장에서 확인하라!</span
+                      >역대급 스케일과 액션, 오직 〈아바타〉만이 선사할 압도적 시네마틱 경험을 반드시 극장에서
+                      확인하라!</span
                     >
                   </div>
                   <div class="banner-text-age"></div>
-                  <button class="ticketing-btn">예매하기</button>
+                  <button class="ticketing-btn"><span>예매하기</span></button>
                 </div>
               </div>
 
@@ -150,7 +139,7 @@
                     <span>가장 초라했던 그때, 가장 눈부시던 우리</span>
                   </div>
                   <div class="banner-text-age"></div>
-                  <button class="ticketing-btn">예매하기</button>
+                  <button class="ticketing-btn"><span>예매하기</span></button>
                 </div>
               </div>
 
@@ -294,10 +283,7 @@
 
               <div class="movie">
                 <a href="#" class="movie-poster">
-                  <img
-                    src="img/poster/poster6.jpg"
-                    alt="포스터_천공의성라퓨타"
-                  />
+                  <img src="img/poster/poster6.jpg" alt="포스터_천공의성라퓨타" />
                 </a>
                 <div class="movie-name">
                   <span>천공의 성 라퓨타</span>
@@ -378,10 +364,7 @@
                 </div>
                 <div class="event-text">
                   <div class="event-text-title">
-                    <span
-                      >〈당신이 영화를 그만두면 안되는 30가지 이유〉 특별
-                      티켓가</span
-                    >
+                    <span>〈당신이 영화를 그만두면 안되는 30가지 이유〉 특별 티켓가</span>
                   </div>
                   <div class="event-text-date">
                     <span>26.01.14.(수) ~ 26.02.08.(일)</span>
@@ -500,9 +483,7 @@
                 </div>
                 <div class="offer-text">
                   <div class="offer-text-title">
-                    <span
-                      >〈라스베가스를 떠나며〉 개봉 3주차 현장 증정 이벤트</span
-                    >
+                    <span>〈라스베가스를 떠나며〉 개봉 3주차 현장 증정 이벤트</span>
                   </div>
                   <div class="offer-text-date">
                     <span>26.01.24.(토) ~ 26.01.27.(화)</span>
@@ -605,22 +586,14 @@
         <section id="top-footer">
           <div class="top-footer-left">
             <div class="social">
-              <a href="https://www.youtube.com/@CGVKOREA" target="_blank"
-                ><i class="ti ti-brand-youtube"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/cgv_korea/?hl=ko"
-                target="_blank"
+              <a href="https://www.youtube.com/@CGVKOREA" target="_blank"><i class="ti ti-brand-youtube"></i></a>
+              <a href="https://www.instagram.com/cgv_korea/?hl=ko" target="_blank"
                 ><i class="ti ti-brand-instagram"></i
               ></a>
-              <a
-                href="https://www.facebook.com/CJCGV/?locale=ko_KR"
-                target="_blank"
+              <a href="https://www.facebook.com/CJCGV/?locale=ko_KR" target="_blank"
                 ><i class="ti ti-brand-facebook"></i
               ></a>
-              <a href="https://x.com/CGV_KOREA" target="_blank"
-                ><i class="ti ti-brand-x"></i
-              ></a>
+              <a href="https://x.com/CGV_KOREA" target="_blank"><i class="ti ti-brand-x"></i></a>
             </div>
           </div>
           <div class="top-footer-right">
@@ -649,10 +622,7 @@
           <div class="bottom-footer-right">
             <div class="bottom-footer-info">
               <div class="info-n-copy">
-                <span
-                  >(04377) 서울특별시 용산구 한강대로 23길 55, 아이파크몰
-                  6층(한강로동)</span
-                >
+                <span>(04377) 서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</span>
                 <span>&#124;</span>
                 <span>통신판매업신고번호 : 2017-서울용산-0662</span>
                 <span>&#124;</span>
@@ -662,10 +632,7 @@
                 <span>&#124;</span>
                 <span>대표이메일 : cjcgvmaster@cj.net</span>
                 <span>&#124;</span>
-                <span
-                  >고객센터 : 1544-1122, 월~금 09:00~18:00 (주말/공휴일
-                  휴무)</span
-                >
+                <span>고객센터 : 1544-1122, 월~금 09:00~18:00 (주말/공휴일 휴무)</span>
                 <br />
                 <span>COPYRIGHTS &copy; CGV. All Rights Reserved.</span>
               </div>
