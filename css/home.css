@@ -302,18 +302,180 @@ button {
 #banners .dots {
   position: absolute;
   left: 10px;
-  bottom: 0;
+  bottom: 18px;
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 #banners .dots li {
-  width: 80px;
-  height: 20px;
-  border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 30px;
+  height: 5px;
+  border-radius: 50px;
+  background-color: #b0b0b0;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+#banners .dots li:hover,
 #banners .dots li.on {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #505050;
+}
+
+#now-showing {
+  height: 550px;
+  position: relative;
+}
+
+#now-showing .now-showing-title {
+  position: absolute;
+  top: 23px;
+  left: 25px;
+}
+
+#now-showing .now-showing-title ul {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  height: 100%;
+}
+
+#now-showing .now-showing-title li a {
+  font-size: 32px;
+  font-weight: bold;
+  color: #999;
+  transition: color 0.3s;
+  line-height: 1;
+  display: inline-block;
+}
+
+#now-showing .now-showing-title li a:hover,
+#now-showing .now-showing-title li.on a {
+  color: #333;
+}
+
+#now-showing .now-showing-title li a::after {
+  content: '';
+  display: block;
+  background: #333;
+  width: 0%;
+  height: 5px;
+  margin-top: 5px;
+  transition: width 0.5s;
+}
+
+#now-showing .now-showing-title li.on a::after,
+#now-showing .now-showing-title li a:hover::after {
+  width: 100%;
+}
+
+#now-showing .now-showing-container {
+  position: absolute;
+  top: 97px;
+  display: flex;
+  gap: 20px;
+}
+
+#now-showing .now-showing-container .movie {
+  width: 250px;
+  height: 440px;
+}
+
+#now-showing .now-showing-container .movie .movie-poster {
+  display: block;
+  width: 250px;
+  height: 354px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.5s;
+}
+
+#now-showing .now-showing-container .movie .movie-poster img {
+  width: 100%;
+  height: 100%;
+}
+
+#now-showing .now-showing-container .movie .movie-poster:hover {
+  transform: translateY(-10px);
+}
+
+#now-showing .now-showing-container .movie .movie-name {
+  margin-top: 18px;
+  margin-left: 10px;
+}
+
+#now-showing .now-showing-container .movie .movie-name span {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+#now-showing .now-showing-container .movie .movie-info {
+  margin-top: 10px;
+  margin-left: 10px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+#now-showing .now-showing-container .movie .movie-info .movie-info-score img {
+  width: 14px;
+  height: 14px;
+}
+
+#now-showing .now-showing-container .movie .movie-info i {
+  font-weight: bold;
+  color: #614845;
+}
+
+#now-showing .now-showing-container .movie .movie-info span {
+  font-size: 15px;
+  font-weight: 300;
+  color: #777;
+  letter-spacing: -1px;
+}
+
+#trailers {
+  height: 600px;
+  position: relative;
+}
+
+#trailers .trailers-background {
+  margin: auto;
+  width: 1623px;
+  height: 590px;
+  background: url(../img/trailer/trailer-bg.png) center/cover;
+  border-radius: 8px;
+}
+
+#trailers .trailers-container {
+  position: absolute;
+  right: 90px;
+  top: 30px;
+  outline: 1px solid red;
+}
+
+#trailers .trailers-container .trailer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 450px;
+  height: 253px;
+  position: relative;
+}
+
+#trailers .trailers-container .trailer:nth-child(1) .trailer-bg {
+  width: 100%;
+  height: 100%;
+  background: url(../img/trailer/trailer1.jpg) center/cover;
+}
+
+#trailers .trailers-container .trailer:nth-child(2) .trailer-bg {
+  width: 100%;
+  height: 100%;
+  background: url(../img/trailer/trailer2.webp) center/cover;
+}
+
+#trailers .trailers-container .trailer .play-btn,
+#trailers .trailers-container .trailer .trailer-text {
+  position: absolute;
 }
