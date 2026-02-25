@@ -15,7 +15,7 @@
 
   <body>
     <div class="top-page">
-      <section id="menu">
+      <nav id="menu">
         <div class="menu-bar">
           <h1 class="menu-logo">
             <a href="index.html">
@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </nav>
 
       <section id="menu-mobile">
         <div class="menu-bar">
@@ -75,20 +75,20 @@
         </div>
       </section>
 
+      <div id="bar-mobile">
+        <button class="menu-toggle-btn">
+          <i class="ti ti-menu-2"></i>
+        </button>
+        <a href="index.html" class="menu-logo">
+          <img src="img/CGV_logo.png" alt="CGV홈" />
+        </a>
+        <button class="profile-btn">
+          <i class="ti ti-user"></i>
+        </button>
+      </div>
+
       <section id="content">
         <header>
-          <div id="bar-mobile">
-            <div class="menu-toggle-btn">
-              <i class="ti ti-menu-2"></i>
-            </div>
-            <a href="index.html" class="menu-logo">
-              <img src="img/CGV_logo.png" alt="CGV홈" />
-            </a>
-            <div class="profile-btn">
-              <i class="ti ti-user"></i>
-            </div>
-          </div>
-
           <div id="searching">
             <div class="searching-wrap">
               <form class="search-bar">
@@ -110,6 +110,12 @@
 
         <main>
           <div id="banners">
+            <div class="arrow-btn left-arrow">
+              <button><i class="ti ti-chevron-compact-left"></i></button>
+            </div>
+            <div class="arrow-btn right-arrow">
+              <button><i class="ti ti-chevron-compact-right"></i></button>
+            </div>
             <div class="banners-container">
               <div class="banner">
                 <div class="banner-img">
@@ -157,6 +163,12 @@
             </ul>
           </div>
           <div id="now-showing">
+            <div class="arrow-btn left-arrow">
+              <button><i class="ti ti-chevron-compact-left"></i></button>
+            </div>
+            <div class="arrow-btn right-arrow">
+              <button><i class="ti ti-chevron-compact-right"></i></button>
+            </div>
             <div class="now-showing-title">
               <ul>
                 <li class="on"><a href="#">현재상영작</a></li>
@@ -336,7 +348,17 @@
               <a href="#" class="trailer">
                 <div class="trailer-bg"></div>
                 <div class="play-btn">
-                  <i class="ti ti-player-play"></i>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-player-play"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
+                  </svg>
                 </div>
                 <div class="trailer-text">
                   <span>런칭 예고편</span>
@@ -346,7 +368,17 @@
               <a href="#" class="trailer">
                 <div class="trailer-bg"></div>
                 <div class="play-btn">
-                  <i class="ti ti-player-play"></i>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-player-play"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M6 4v16a1 1 0 0 0 1.524 .852l13 -8a1 1 0 0 0 0 -1.704l-13 -8a1 1 0 0 0 -1.524 .852z" />
+                  </svg>
                 </div>
                 <div class="trailer-text">
                   <span>메인 예고편</span>
@@ -355,90 +387,96 @@
             </div>
           </div>
           <div id="events">
-            <div class="events-title">
+            <div class="arrow-btn left-arrow">
+              <button><i class="ti ti-chevron-compact-left"></i></button>
+            </div>
+            <div class="arrow-btn right-arrow">
+              <button><i class="ti ti-chevron-compact-right"></i></button>
+            </div>
+            <div class="cards-title">
               <h2>이벤트 &#47; 혜택</h2>
             </div>
 
-            <div class="events-container">
-              <a href="#" class="event">
-                <div class="event-img">
+            <div class="cards-container">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/event/event1.jpg" alt="이벤트1" />
                 </div>
-                <div class="event-text">
-                  <div class="event-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈당신이 영화를 그만두면 안되는 30가지 이유〉 특별 티켓가</span>
                   </div>
-                  <div class="event-text-date">
+                  <div class="card-text-date">
                     <span>26.01.14.(수) ~ 26.02.08.(일)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="event">
-                <div class="event-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/event/event2.jpg" alt="이벤트2" />
                 </div>
-                <div class="event-text">
-                  <div class="event-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈하트맨〉 개봉 2주차 무대인사</span>
                   </div>
-                  <div class="event-text-date">
+                  <div class="card-text-date">
                     <span>26.01.24.(토) ~ 26.01.25.(일)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="event">
-                <div class="event-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/event/event3.jpg" alt="이벤트3" />
                 </div>
-                <div class="event-text">
-                  <div class="event-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈세계의 주인〉<br />뉴이어 오브 러브 무대인사</span>
                   </div>
-                  <div class="event-text-date">
+                  <div class="card-text-date">
                     <span>26.02.01.(일) ~ 26.02.01.(일)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="event">
-                <div class="event-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/event/event4.jpg" alt="이벤트4" />
                 </div>
-                <div class="event-text">
-                  <div class="event-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈프로젝트 Y〉 뮤직톡 GV</span>
                   </div>
-                  <div class="event-text-date">
+                  <div class="card-text-date">
                     <span>26.01.28.(수) ~ 26.01.28.(수)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="event">
-                <div class="event-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/event/event5.jpg" alt="이벤트5" />
                 </div>
-                <div class="event-text">
-                  <div class="event-text-title">
-                    <span>〈만약에 우리〉 개봉 4주차 무대인사</span>
+                <div class="card-text">
+                  <div class="card-text-title">
+                    <span>〈만약에 우리〉 <br />개봉 4주차 무대인사</span>
                   </div>
-                  <div class="event-text-date">
+                  <div class="card-text-date">
                     <span>26.01.25.(일)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="event">
-                <div class="event-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/event/event6.jpg" alt="이벤트6" />
                 </div>
-                <div class="event-text">
-                  <div class="event-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈왕과 사는 남자〉 개봉일 무대인사</span>
                   </div>
-                  <div class="event-text-date">
+                  <div class="card-text-date">
                     <span>26.02.04.(수)</span>
                   </div>
                 </div>
@@ -446,90 +484,96 @@
             </div>
           </div>
           <div id="offers">
-            <div class="offers-title">
+            <div class="arrow-btn left-arrow">
+              <button><i class="ti ti-chevron-compact-left"></i></button>
+            </div>
+            <div class="arrow-btn right-arrow">
+              <button><i class="ti ti-chevron-compact-right"></i></button>
+            </div>
+            <div class="cards-title">
               <h2>경품 &#47; 특전</h2>
             </div>
 
-            <div class="offers-container">
-              <a href="#" class="offer">
-                <div class="offer-img">
+            <div class="cards-container">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/offer/offer1.jpg" alt="오퍼1" />
                 </div>
-                <div class="offer-text">
-                  <div class="offer-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈아바타 - 불과 재〉 5주차 SCREENX 현장 이벤트</span>
                   </div>
-                  <div class="offer-text-date">
+                  <div class="card-text-date">
                     <span>26.01.14.(수) ~ 26.02.08.(일)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="offer">
-                <div class="offer-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/offer/offer2.jpg" alt="오퍼2" />
                 </div>
-                <div class="offer-text">
-                  <div class="offer-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈척의 일생〉 드럼 뱃지 패키지 상영회</span>
                   </div>
-                  <div class="offer-text-date">
+                  <div class="card-text-date">
                     <span>26.01.24.(토) ~ 26.01.25.(일)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="offer">
-                <div class="offer-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/offer/offer3.jpg" alt="오퍼3" />
                 </div>
-                <div class="offer-text">
-                  <div class="offer-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈라스베가스를 떠나며〉 개봉 3주차 현장 증정 이벤트</span>
                   </div>
-                  <div class="offer-text-date">
+                  <div class="card-text-date">
                     <span>26.01.24.(토) ~ 26.01.27.(화)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="offer">
-                <div class="offer-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/offer/offer4.jpg" alt="오퍼4" />
                 </div>
-                <div class="offer-text">
-                  <div class="offer-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈굿 포 낫씽〉 2주차 현장 이벤트</span>
                   </div>
-                  <div class="offer-text-date">
+                  <div class="card-text-date">
                     <span>26.01.21.(수) ~ 26.01.27.(화)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="offer">
-                <div class="offer-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/offer/offer5.jpg" alt="오퍼5" />
                 </div>
-                <div class="offer-text">
-                  <div class="offer-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈담뽀뽀〉 3주차 현장 증정 이벤트</span>
                   </div>
-                  <div class="offer-text-date">
+                  <div class="card-text-date">
                     <span>26.12.31.(수) ~ 26.01.27.(화)</span>
                   </div>
                 </div>
               </a>
 
-              <a href="#" class="offer">
-                <div class="offer-img">
+              <a href="#" class="card">
+                <div class="card-img">
                   <img src="img/offer/offer6.jpg" alt="오퍼6" />
                 </div>
-                <div class="offer-text">
-                  <div class="offer-text-title">
+                <div class="card-text">
+                  <div class="card-text-title">
                     <span>〈BOY〉 2주차 현장 증정 이벤트</span>
                   </div>
-                  <div class="offer-text-date">
+                  <div class="card-text-date">
                     <span>26.01.21.(수) ~ 26.01.27.(화)</span>
                   </div>
                 </div>
@@ -537,6 +581,12 @@
             </div>
           </div>
           <div id="experiences">
+            <div class="arrow-btn left-arrow">
+              <button><i class="ti ti-chevron-compact-left"></i></button>
+            </div>
+            <div class="arrow-btn right-arrow">
+              <button><i class="ti ti-chevron-compact-right"></i></button>
+            </div>
             <div class="experiences-title">
               <h2>특별관</h2>
             </div>
@@ -623,7 +673,7 @@
           </div>
           <div class="bottom-footer-right">
             <div class="bottom-footer-info">
-              <div class="info-n-copy">
+              <div>
                 <span>(04377) 서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</span>
                 <span>&#124;</span>
                 <span>통신판매업신고번호 : 2017-서울용산-0662</span>
@@ -636,7 +686,7 @@
                 <span>&#124;</span>
                 <span>고객센터 : 1544-1122, 월~금 09:00~18:00 (주말/공휴일 휴무)</span>
                 <br />
-                <span>COPYRIGHTS &copy; CGV. All Rights Reserved.</span>
+                <span class="copy">COPYRIGHTS &copy; CGV. All Rights Reserved.</span>
               </div>
             </div>
           </div>

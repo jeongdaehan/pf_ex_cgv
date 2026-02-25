@@ -14,6 +14,12 @@ button {
   cursor: pointer;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
+}
+
 #menu {
   position: fixed;
   width: 270px;
@@ -103,6 +109,7 @@ button {
   color: #333;
   background-color: #eee;
   display: none;
+  z-index: 999;
 }
 
 #menu-mobile > .menu-bar {
@@ -115,13 +122,8 @@ button {
   padding-right: 20px;
 }
 
+/* 모바일 상단 메뉴바 */
 #bar-mobile {
-  background-color: #eee;
-  height: 56px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
   display: none;
 }
 
@@ -132,6 +134,7 @@ button {
 }
 
 #bar-mobile > .menu-logo {
+  display: block;
   width: 54px;
   height: 24px;
 }
@@ -142,6 +145,7 @@ button {
   object-fit: contain;
 }
 
+/* 상단 검색창 */
 #searching {
   height: 120px;
   display: flex;
@@ -190,6 +194,8 @@ button {
 }
 
 #searching > .btns > a {
+  display: flex;
+  align-items: center;
   padding: 10px;
 }
 
@@ -197,16 +203,17 @@ button {
   color: #ee2e24;
   font-size: 24px;
   font-weight: bold;
-  vertical-align: middle;
 }
 
 #searching > .btns > a > span {
   font-size: 18px;
   font-weight: 600;
   margin-left: 10px;
-  vertical-align: middle;
+  position: relative;
+  transform: translateY(1px);
 }
 
+/* banners */
 #banners {
   height: 540px;
   position: relative;
@@ -233,6 +240,28 @@ button {
   position: absolute;
 }
 
+#banners .banner .banner-img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-shadow:
+    inset 150px 150px 220px rgba(51, 51, 51, 0.7),
+    inset -150px -150px 220px rgba(51, 51, 51, 0.7);
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+#banners .banner:hover .banner-img::after {
+  box-shadow:
+    inset 150px 150px 220px rgba(51, 51, 51, 0.4),
+    inset -150px -150px 220px rgba(51, 51, 51, 0.4);
+}
+
 #banners .banner .banner-img img {
   width: 100%;
   height: 100%;
@@ -245,6 +274,7 @@ button {
   left: 0;
   bottom: 0;
   padding: 0 30px;
+  z-index: 2;
 }
 
 #banners .banner .banner-text-name {
@@ -282,6 +312,11 @@ button {
   background-color: #ff5b5b;
   border-radius: 8px;
   margin-top: 21px;
+  transition: 0.3s;
+}
+
+#banners .ticketing-btn:hover {
+  background-color: #fc3d3d;
 }
 
 #banners .ticketing-btn span {
@@ -291,12 +326,19 @@ button {
 }
 
 #banners .banner-text-age {
-  outline: 1px solid red;
   width: 30px;
   height: 30px;
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+
+#banners .banner:nth-child(1) .banner-text-age {
+  background: url(../img/poster/age_12.webp);
+}
+
+#banners .banner:nth-child(2) .banner-text-age {
+  background: url(../img/poster/age_15.webp);
 }
 
 #banners .dots {
@@ -321,6 +363,7 @@ button {
   background-color: #505050;
 }
 
+/* now showing */
 #now-showing {
   height: 550px;
   position: relative;
@@ -434,6 +477,7 @@ button {
   letter-spacing: -1px;
 }
 
+/* trailers */
 #trailers {
   height: 600px;
   position: relative;
@@ -441,26 +485,28 @@ button {
 
 #trailers .trailers-background {
   margin: auto;
-  width: 1623px;
   height: 590px;
-  background: url(../img/trailer/trailer-bg.png) center/cover;
+  background: url(../img/trailer/trailer-bg.png) left center/cover;
   border-radius: 8px;
 }
 
 #trailers .trailers-container {
+  width: max-content;
   position: absolute;
-  right: 90px;
-  top: 30px;
-  outline: 1px solid red;
-}
-
-#trailers .trailers-container .trailer {
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+#trailers .trailers-container .trailer {
   width: 450px;
   height: 253px;
   position: relative;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 #trailers .trailers-container .trailer:nth-child(1) .trailer-bg {
@@ -473,9 +519,948 @@ button {
   width: 100%;
   height: 100%;
   background: url(../img/trailer/trailer2.webp) center/cover;
+  transform: scale(1.4);
+}
+
+#trailers .trailer-bg {
+  filter: saturate(50%);
+  transition: 0.5s;
+}
+
+#trailers .trailer:hover .trailer-bg {
+  filter: saturate(100%);
 }
 
 #trailers .trailers-container .trailer .play-btn,
 #trailers .trailers-container .trailer .trailer-text {
   position: absolute;
+}
+
+#trailers .trailers-container .trailer .play-btn {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ff6259;
+  border-radius: 50%;
+}
+
+#trailers .trailers-container .trailer .play-btn svg {
+  width: 100%;
+  height: 100%;
+  color: #ff6259;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#trailers .trailers-container .trailer .trailer-text {
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#trailers .trailers-container .trailer .trailer-text span {
+  color: #f1f1f1;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+/* events and offers */
+#events,
+#offers {
+  height: 420px;
+  position: relative;
+}
+
+.cards-title {
+  padding: 28px 0 10px 15px;
+}
+
+.cards-title h2 {
+  color: #111;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.cards-container {
+  padding-top: 16px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.card {
+  display: inline-block;
+  width: 296px;
+  height: 296px;
+  border-radius: 8px;
+  border: 1px solid rgba(51, 51, 51, 0.3);
+  background-color: #f0f0f0;
+  overflow: hidden;
+  flex-shrink: 0;
+  opacity: 0.8;
+  box-shadow: 1px 2px 5px rgba(51, 51, 51, 0.2);
+  transition: 0.3s;
+}
+
+.card .card-img {
+  width: 296px;
+  height: 164px;
+}
+
+.card .card-img img {
+  width: 100%;
+  height: 100%;
+  filter: saturate(30%);
+  transition: 2s;
+}
+
+.card:hover {
+  opacity: 1;
+}
+
+.card:hover .card-img img {
+  filter: saturate(100%);
+}
+
+.card .card-text {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-text-title {
+  width: 100%;
+  height: 52px;
+}
+
+.card-text-title span {
+  font-size: 20px;
+  color: #333;
+  letter-spacing: -0.5px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.card-text-date {
+  text-align: right;
+}
+
+.card-text-date span {
+  font-size: 14px;
+  color: #777;
+  letter-spacing: -1px;
+  font-weight: 300;
+}
+
+/* experiences */
+#experiences {
+  position: relative;
+  height: 400px;
+}
+
+#experiences .experiences-title {
+  padding: 28px 0 10px 15px;
+}
+
+.experiences-title h2 {
+  color: #111;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.experiences-container {
+  padding-top: 16px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.exp {
+  display: inline-block;
+  width: 446px;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 1px 2px 5px rgba(51, 51, 51, 0.2);
+  position: relative;
+  transition: 0.3s;
+}
+
+.exp .exp-img {
+  width: 100%;
+  height: 100%;
+}
+
+.exp .exp-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.exp .exp-img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-shadow:
+    inset 100px 100px 150px rgba(51, 51, 51, 0.5),
+    inset -100px -100px 150px rgba(51, 51, 51, 0.5);
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.exp:hover .exp-img::after {
+  box-shadow:
+    inset 100px 100px 150px rgba(51, 51, 51, 0.2),
+    inset -100px -100px 150px rgba(51, 51, 51, 0.2);
+}
+
+.exp .exp-text {
+  position: absolute;
+  width: 446px;
+  height: 100px;
+  bottom: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.exp .exp-text span {
+  line-height: 38px;
+  color: #fdfdfd;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.exp .exp-text b {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+/* 화살표 버튼 */
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.left-arrow {
+  left: 1%;
+}
+
+.right-arrow {
+  right: 1%;
+}
+
+.arrow-btn button {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+}
+
+.arrow-btn button i {
+  color: #ff5b5b;
+  font-size: 30px;
+}
+
+main > div:hover .arrow-btn {
+  opacity: 0.5;
+}
+
+main > div .arrow-btn:hover {
+  opacity: 0.95;
+}
+
+.bottom-page {
+  z-index: 100;
+}
+
+footer {
+  width: 100%;
+  height: 140px;
+}
+
+#top-footer,
+#bottom-footer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+#top-footer {
+  background-color: #bbb;
+}
+
+#bottom-footer {
+  background-color: #ddd;
+}
+
+.top-footer-left,
+.bottom-footer-left {
+  width: 270px;
+}
+
+.top-footer-left {
+  padding-left: 98px;
+}
+
+.bottom-footer-left {
+  padding-left: 142px;
+}
+
+.top-footer-left .social {
+  display: flex;
+  gap: 8px;
+}
+
+.top-footer-left .social a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ff5b5b;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.top-footer-left .social a:hover {
+  background-color: #fc3d3d;
+}
+
+.top-footer-left .social i {
+  color: #fdfdfd;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.bottom-footer-left .footer-logo {
+  width: 58px;
+  height: 26px;
+}
+
+.bottom-footer-left .footer-logo img {
+  width: 100%;
+  height: 100%;
+  filter: saturate(0%) brightness(180%);
+}
+
+.top-footer-right,
+.bottom-footer-right {
+  width: calc(100% - 270px);
+  padding-left: 20px;
+}
+
+.top-footer-right .top-footer-menu {
+  display: flex;
+  gap: 8px;
+}
+
+.top-footer-right .top-footer-menu a,
+.top-footer-right .top-footer-menu span {
+  color: #555;
+  font-size: 15px;
+  letter-spacing: -1.5px;
+}
+
+.top-footer-right .top-footer-menu a b {
+  font-weight: 600;
+}
+
+.bottom-footer-right .bottom-footer-info {
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: -1px;
+  color: #555;
+}
+
+.bottom-footer-right .bottom-footer-info .copy {
+  font-size: 13px;
+  letter-spacing: -0.5px;
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 1905px) {
+  #trailers .trailers-container {
+    right: 3%;
+  }
+}
+
+@media (max-width: 1850px) {
+  #trailers .trailers-container .trailer {
+    width: 350px;
+    height: 197px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 18px;
+    letter-spacing: 0;
+  }
+}
+
+@media (max-width: 1700px) {
+  #banners {
+    height: 440px;
+  }
+
+  #banners .banner {
+    width: 710px;
+    height: 400px;
+  }
+
+  #banners .banner .banner-img::after {
+    box-shadow:
+      inset 90px 90px 160px rgba(51, 51, 51, 0.7),
+      inset -90px -90px 160px rgba(51, 51, 51, 0.7);
+  }
+
+  #banners .banner:hover .banner-img::after {
+    box-shadow:
+      inset 90px 90px 160px rgba(51, 51, 51, 0.4),
+      inset -90px -90px 160px rgba(51, 51, 51, 0.4);
+  }
+
+  #banners .banner .banner-text {
+    height: 226px;
+    padding: 0 25px;
+  }
+
+  #banners .banner .banner-text-name,
+  #banners .banner .banner-text-desc {
+    height: 72px;
+  }
+
+  #banners .banner .banner-text-name > span {
+    font-size: 52px;
+  }
+
+  #banners .banner .banner-text-desc > span {
+    font-size: 20px;
+    line-height: 36px;
+  }
+
+  #banners .ticketing-btn {
+    width: 90px;
+    height: 38px;
+    margin-top: 17px;
+  }
+
+  #banners .ticketing-btn span {
+    font-size: 16px;
+  }
+
+  #trailers .trailers-background {
+    height: 590px;
+    background: url(../img/trailer/trailer-banner-bg.jpg) left center/cover;
+    border-radius: 8px;
+    min-width: 965px;
+  }
+}
+
+@media (max-width: 1440px) {
+  #trailers .trailers-container {
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0);
+    flex-direction: row;
+    gap: 28px;
+  }
+
+  #trailers .trailers-container .trailer {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 1280px) {
+  #trailers {
+    height: auto;
+    min-height: 0;
+  }
+
+  #trailers .trailers-container {
+    gap: 20px;
+  }
+
+  #trailers .trailers-background {
+    min-width: 465px;
+    height: auto;
+    aspect-ratio: 193 / 118;
+  }
+}
+
+@media (max-width: 1200px) {
+  #searching .btns span {
+    display: none;
+  }
+}
+
+@media (max-width: 1120px) {
+  #now-showing .now-showing-title ul {
+    gap: 25px;
+  }
+
+  #now-showing .now-showing-title li {
+    flex-shrink: 0;
+  }
+
+  #now-showing .now-showing-title li a,
+  .cards-title h2,
+  .experiences-title h2 {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  #trailers .trailers-container .trailer {
+    width: 300px;
+    height: 169px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #menu {
+    width: 240px;
+  }
+
+  #content {
+    margin-left: 250px;
+  }
+
+  .top-footer-left,
+  .bottom-footer-left {
+    width: 240px;
+  }
+
+  .top-footer-left {
+    padding-left: 68px;
+  }
+
+  .bottom-footer-left {
+    padding-left: 112px;
+  }
+
+  .top-footer-right,
+  .bottom-footer-right {
+    width: calc(100% - 240px);
+    padding-left: 20px;
+  }
+
+  #now-showing .now-showing-title li a,
+  .cards-title h2,
+  .experiences-title h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 950px) {
+  #banners {
+    height: 340px;
+  }
+
+  #banners > .banners-container {
+    gap: 20px;
+  }
+
+  #banners .banner {
+    width: 532px;
+    height: 300px;
+  }
+
+  #banners .banner .banner-img::after {
+    box-shadow:
+      inset 70px 70px 120px rgba(51, 51, 51, 0.7),
+      inset -70px -70px 120px rgba(51, 51, 51, 0.7);
+  }
+
+  #banners .banner:hover .banner-img::after {
+    box-shadow:
+      inset 70px 70px 120px rgba(51, 51, 51, 0.4),
+      inset -70px -70px 120px rgba(51, 51, 51, 0.4);
+  }
+
+  #banners .banner .banner-text {
+    height: 195px;
+    padding: 0 20px;
+  }
+
+  #banners .banner .banner-text-name,
+  #banners .banner .banner-text-desc {
+    height: 60px;
+  }
+
+  #banners .banner .banner-text-name > span {
+    font-size: 42px;
+  }
+
+  #banners .banner .banner-text-desc > span {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  #banners .ticketing-btn {
+    width: 71px;
+    height: 30px;
+    margin-top: 16px;
+  }
+
+  #banners .ticketing-btn span {
+    font-size: 14px;
+  }
+
+  #now-showing .now-showing-title li a,
+  .cards-title h2,
+  .experiences-title h2 {
+    font-size: 24px;
+  }
+
+  #trailers .trailers-container .trailer {
+    width: 265px;
+    height: 149px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 850px) {
+  #now-showing .now-showing-title li a,
+  .cards-title h2,
+  .experiences-title h2 {
+    font-size: 28px;
+  }
+
+  #trailers .trailers-container .trailer {
+    width: 300px;
+    height: 169px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 35px;
+    height: 35px;
+    border: 1.5px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 16px;
+  }
+
+  .top-footer-left,
+  .bottom-footer-left {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .top-footer-left {
+    padding-left: 0;
+  }
+
+  .bottom-footer-left {
+    padding-left: 0;
+  }
+
+  .top-footer-right,
+  .bottom-footer-right {
+    width: calc(100% - 170px);
+    padding-left: 20px;
+  }
+
+  .top-footer-left .social a {
+    width: 25px;
+    height: 25px;
+  }
+
+  .top-footer-left .social i {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  #menu {
+    display: none;
+  }
+
+  #content {
+    margin-left: 0;
+    padding: 0 10px;
+  }
+
+  #bar-mobile {
+    background-color: #eee;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  #searching {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #banners > .banners-container {
+    gap: 10px;
+  }
+  #now-showing .now-showing-title ul {
+    overflow-x: auto;
+  }
+
+  #now-showing .now-showing-title li a,
+  .cards-title h2,
+  .experiences-title h2 {
+    font-size: 26px;
+  }
+
+  #trailers .trailers-container .trailer {
+    width: 265px;
+    height: 149px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 14px;
+  }
+
+  #now-showing .now-showing-container,
+  .cards-container,
+  .experiences-container {
+    gap: 10px;
+  }
+
+  #top-footer,
+  #bottom-footer {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #top-footer {
+    height: 110px;
+  }
+
+  .top-footer-left,
+  .bottom-footer-left {
+    width: 100%;
+    height: 50px;
+  }
+
+  .top-footer-left .social a {
+    width: 28px;
+    height: 28px;
+  }
+
+  .top-footer-left .social i {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .top-footer-right,
+  .bottom-footer-right {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .top-footer-right {
+    height: 80px;
+  }
+
+  .top-footer-right .top-footer-menu {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  #trailers .trailers-background {
+    width: 100%;
+  }
+
+  #trailers .trailers-container .trailer {
+    width: 220px;
+    height: 124px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 540px) {
+  #now-showing {
+    height: 500px;
+  }
+
+  #now-showing .now-showing-title {
+    left: 15px;
+  }
+
+  #now-showing .now-showing-container {
+    top: 90px;
+  }
+
+  #now-showing .now-showing-container .movie {
+    width: 200px;
+    height: 352px;
+  }
+
+  #now-showing .now-showing-container .movie .movie-poster {
+    width: 200px;
+    height: 283px;
+  }
+
+  #now-showing .now-showing-container .movie .movie-name {
+    margin-top: 15px;
+    margin-left: 8px;
+  }
+
+  #now-showing .now-showing-container .movie .movie-name span {
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+
+  /* 여기까지 함 */
+
+  #now-showing .now-showing-title li a,
+  .cards-title h2,
+  .experiences-title h2 {
+    font-size: 24px;
+  }
+
+  #trailers .trailers-container .trailer {
+    width: 175px;
+    height: 99px;
+    border-radius: 8px;
+  }
+
+  #trailers .trailers-container .trailer .play-btn {
+    width: 25px;
+    height: 25px;
+    border: 1.5px solid #ff6259;
+    border-radius: 50%;
+  }
+
+  #trailers .trailers-container .trailer .trailer-text span {
+    font-size: 12px;
+  }
+
+  #banners {
+    height: 240px;
+  }
+
+  #banners .banner {
+    width: 355px;
+    height: 200px;
+  }
+
+  #banners .banner .banner-img::after {
+    box-shadow:
+      inset 70px 70px 120px rgba(51, 51, 51, 0.7),
+      inset -70px -70px 120px rgba(51, 51, 51, 0.7);
+  }
+
+  #banners .banner:hover .banner-img::after {
+    box-shadow:
+      inset 70px 70px 120px rgba(51, 51, 51, 0.4),
+      inset -70px -70px 120px rgba(51, 51, 51, 0.4);
+  }
+
+  #banners .banner .banner-text {
+    height: 195px;
+    padding: 0 20px;
+  }
+
+  #banners .banner .banner-text-name,
+  #banners .banner .banner-text-desc {
+    height: 60px;
+  }
+
+  #banners .banner .banner-text-name > span {
+    font-size: 42px;
+  }
+
+  #banners .banner .banner-text-desc > span {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  #banners .ticketing-btn {
+    width: 71px;
+    height: 30px;
+    margin-top: 16px;
+  }
+
+  #banners .ticketing-btn span {
+    font-size: 14px;
+  }
 }
