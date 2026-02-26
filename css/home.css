@@ -1008,7 +1008,7 @@ footer {
   }
 
   #trailers .trailers-background {
-    min-width: 465px;
+    min-width: 355px;
     height: auto;
     aspect-ratio: 193 / 118;
   }
@@ -1495,8 +1495,8 @@ footer {
   }
 
   #trailers .trailers-container .trailer {
-    width: 175px;
-    height: 99px;
+    width: 160px;
+    height: 91px;
     border-radius: 8px;
   }
 
