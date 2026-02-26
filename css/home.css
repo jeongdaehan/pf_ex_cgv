@@ -18,6 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
+  max-width: 1920px;
 }
 
 #menu {
@@ -334,11 +335,11 @@ body {
 }
 
 #banners .banner:nth-child(1) .banner-text-age {
-  background: url(../img/poster/age_12.webp);
+  background: url(../img/poster/age_12.webp) center/cover;
 }
 
 #banners .banner:nth-child(2) .banner-text-age {
-  background: url(../img/poster/age_15.webp);
+  background: url(../img/poster/age_15.webp) center/cover;
 }
 
 #banners .dots {
@@ -573,7 +574,7 @@ body {
 /* events and offers */
 #events,
 #offers {
-  height: 420px;
+  height: 400px;
   position: relative;
 }
 
@@ -1168,6 +1169,11 @@ footer {
 }
 
 @media (max-width: 850px) {
+  #banners .dots {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   #now-showing .now-showing-title li a,
   .cards-title h2,
   .experiences-title h2 {
@@ -1247,12 +1253,30 @@ footer {
   #searching {
     display: none;
   }
+
+  .arrow-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .left-arrow {
+    left: 0.5%;
+  }
+
+  .right-arrow {
+    right: 0.5%;
+  }
+
+  .arrow-btn button i {
+    font-size: 25px;
+  }
 }
 
 @media (max-width: 768px) {
   #banners > .banners-container {
     gap: 10px;
   }
+
   #now-showing .now-showing-title ul {
     overflow-x: auto;
   }
@@ -1325,7 +1349,7 @@ footer {
   }
 
   .top-footer-right {
-    height: 80px;
+    height: 60px;
   }
 
   .top-footer-right .top-footer-menu {
@@ -1357,8 +1381,65 @@ footer {
 }
 
 @media (max-width: 540px) {
+  #banners {
+    height: 240px;
+  }
+
+  #banners .banner {
+    width: 355px;
+    height: 200px;
+  }
+
+  #banners .banner .banner-img::after {
+    box-shadow:
+      inset 50px 50px 100px rgba(51, 51, 51, 0.7),
+      inset -50px -50px 100px rgba(51, 51, 51, 0.7);
+  }
+
+  #banners .banner:hover .banner-img::after {
+    box-shadow:
+      inset 50px 50px 100px rgba(51, 51, 51, 0.4),
+      inset -50px -50px 100px rgba(51, 51, 51, 0.4);
+  }
+
+  #banners .banner .banner-text {
+    height: 195px;
+    padding: 0 15px;
+  }
+
+  #banners .banner .banner-text-name,
+  #banners .banner .banner-text-desc {
+    height: 60px;
+  }
+
+  #banners .banner .banner-text-name > span {
+    font-size: 25px;
+  }
+
+  #banners .banner .banner-text-desc > span {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  #banners .banner-text-age {
+    width: 22px;
+    height: 22px;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  #banners .ticketing-btn {
+    width: 59px;
+    height: 25px;
+    margin-top: 16px;
+  }
+
+  #banners .ticketing-btn span {
+    font-size: 12px;
+  }
+
   #now-showing {
-    height: 500px;
+    height: 462px;
   }
 
   #now-showing .now-showing-title {
@@ -1389,7 +1470,23 @@ footer {
     letter-spacing: 0;
   }
 
-  /* 여기까지 함 */
+  #now-showing .now-showing-container .movie .movie-info {
+    margin-left: 8px;
+    gap: 12px;
+  }
+
+  #now-showing .now-showing-container .movie .movie-info .movie-info-score img {
+    width: 12px;
+    height: 12px;
+  }
+
+  #now-showing .now-showing-container .movie .movie-info i {
+    font-size: 14px;
+  }
+
+  #now-showing .now-showing-container .movie .movie-info span {
+    font-size: 14px;
+  }
 
   #now-showing .now-showing-title li a,
   .cards-title h2,
@@ -1414,53 +1511,77 @@ footer {
     font-size: 12px;
   }
 
-  #banners {
-    height: 240px;
+  #events,
+  #offers {
+    height: 354px;
   }
 
-  #banners .banner {
-    width: 355px;
-    height: 200px;
+  .card {
+    width: 250px;
+    height: 250px;
   }
 
-  #banners .banner .banner-img::after {
-    box-shadow:
-      inset 70px 70px 120px rgba(51, 51, 51, 0.7),
-      inset -70px -70px 120px rgba(51, 51, 51, 0.7);
+  .card .card-img {
+    width: 250px;
+    height: 139px;
   }
 
-  #banners .banner:hover .banner-img::after {
-    box-shadow:
-      inset 70px 70px 120px rgba(51, 51, 51, 0.4),
-      inset -70px -70px 120px rgba(51, 51, 51, 0.4);
+  .card .card-text {
+    margin: 12px;
   }
 
-  #banners .banner .banner-text {
-    height: 195px;
-    padding: 0 20px;
+  .card-text-title {
+    height: 44px;
   }
 
-  #banners .banner .banner-text-name,
-  #banners .banner .banner-text-desc {
-    height: 60px;
-  }
-
-  #banners .banner .banner-text-name > span {
-    font-size: 42px;
-  }
-
-  #banners .banner .banner-text-desc > span {
+  .card-text-title span {
     font-size: 18px;
-    line-height: 28px;
+    line-height: 24px;
   }
 
-  #banners .ticketing-btn {
-    width: 71px;
+  .card-text-date span {
+    font-size: 13px;
+  }
+
+  #experiences {
+    height: 354px;
+  }
+
+  .exp {
+    width: 378px;
+    height: 254px;
+  }
+
+  .exp .exp-img::after {
+    box-shadow:
+      inset 85px 85px 120px rgba(51, 51, 51, 0.5),
+      inset -85px -85px 120px rgba(51, 51, 51, 0.5);
+  }
+
+  .exp:hover .exp-img::after {
+    box-shadow:
+      inset 85px 85px 120px rgba(51, 51, 51, 0.2),
+      inset -85px -85px 120px rgba(51, 51, 51, 0.2);
+  }
+
+  .exp .exp-text {
+    width: 378px;
+  }
+
+  .arrow-btn {
+    width: 30px;
     height: 30px;
-    margin-top: 16px;
   }
 
-  #banners .ticketing-btn span {
-    font-size: 14px;
+  .left-arrow {
+    left: 0.5%;
+  }
+
+  .right-arrow {
+    right: 0.5%;
+  }
+
+  .arrow-btn button i {
+    font-size: 20px;
   }
 }
