@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- tabler icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+
+    <!-- 외부정의 -->
+    <script src="js/now-showing.js" defer></script>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/now-showing.css" />
+    <title>현재 상영작</title>
+  </head>
+
+  <body>
+    <div id="menu-overlay"></div>
+
+    <div class="top-page">
+      <nav id="menu">
+        <div class="menu-bar">
+          <h1 class="menu-logo">
+            <a href="index.html">
+              <img src="img/CGV_logo.png" alt="CGV홈" />
+            </a>
+          </h1>
+          <div class="gnb">
+            <div class="top-menu">
+              <a href="now-showing.html" class="on"><i class="ti ti-movie"></i><span>영화</span></a>
+              <a href="#"><i class="ti ti-ticket"></i><span>예매&middot;예약</span></a>
+              <a href="#"><i class="ti ti-bubble-tea-2"></i><span>매점</span></a>
+              <a href="#"><i class="ti ti-message-circle"></i><span>씨네톡</span></a>
+              <a href="#"><i class="ti ti-calendar-check"></i><span>이벤트</span></a>
+              <a href="#"><i class="ti ti-carambola"></i><span>CGV VIP</span></a>
+              <a href="#"><i class="ti ti-map-pin"></i><span>상영관 위치</span></a>
+            </div>
+            <hr />
+            <div class="bottom-menu">
+              <a href="#"><i class="ti ti-armchair"></i><span>특별관</span></a>
+              <a href="#"><i class="ti ti-monkeybar"></i><span>액티비티</span></a>
+              <a href="#"><i class="ti ti-polaroid"></i><span>포토플레이</span></a>
+              <a href="#"><i class="ti ti-chalkboard"></i><span>대관 문의</span></a>
+              <a href="#"><i class="ti ti-shopping-bag"></i><span>씨네샵 &#47; 기프트카드</span></a>
+              <a href="#"><i class="ti ti-disabled"></i><span>접근성</span></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section id="menu-mobile">
+        <div class="menu-bar">
+          <h1 class="menu-logo">
+            <a href="index.html">
+              <img src="img/CGV_logo.png" alt="CGV홈" />
+            </a>
+          </h1>
+          <div class="gnb">
+            <div class="top-menu">
+              <a href="now-showing.html" class="on"><i class="ti ti-movie"></i><span>영화</span></a>
+              <a href="#"><i class="ti ti-ticket"></i><span>예매&middot;예약</span></a>
+              <a href="#"><i class="ti ti-bubble-tea-2"></i><span>매점</span></a>
+              <a href="#"><i class="ti ti-message-circle"></i><span>씨네톡</span></a>
+              <a href="#"><i class="ti ti-calendar-check"></i><span>이벤트</span></a>
+              <a href="#"><i class="ti ti-carambola"></i><span>CGV VIP</span></a>
+              <a href="#"><i class="ti ti-map-pin"></i><span>상영관 위치</span></a>
+            </div>
+            <hr />
+            <div class="bottom-menu">
+              <a href="#"><i class="ti ti-armchair"></i><span>특별관</span></a>
+              <a href="#"><i class="ti ti-monkeybar"></i><span>액티비티</span></a>
+              <a href="#"><i class="ti ti-polaroid"></i><span>포토플레이</span></a>
+              <a href="#"><i class="ti ti-chalkboard"></i><span>대관 문의</span></a>
+              <a href="#"><i class="ti ti-shopping-bag"></i><span>씨네샵 &#47; 기프트카드</span></a>
+              <a href="#"><i class="ti ti-disabled"></i><span>접근성</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="bar-mobile">
+        <button class="menu-toggle-btn">
+          <i class="ti ti-menu-2"></i>
+        </button>
+        <a href="index.html" class="menu-logo">
+          <img src="img/CGV_logo.png" alt="CGV홈" />
+        </a>
+        <button class="profile-btn">
+          <i class="ti ti-user"></i>
+        </button>
+      </div>
+
+      <section id="content">
+        <header>
+          <div id="searching">
+            <div class="searching-wrap">
+              <form class="search-bar">
+                <button class="search-bar-btn-search" type="submit">
+                  <i class="ti ti-search" aria-label="검색버튼"> </i>
+                </button>
+                <input id="search" name="search" type="text" placeholder="나를 설레게 만들 영화를 찾아보세요!" />
+                <button class="search-bar-btn-clear" type="reset" aria-label="다시쓰기버튼">다시쓰기</button>
+              </form>
+            </div>
+
+            <div class="btns">
+              <a href="#" class="btn-ticket"> <i class="ti ti-ticket"></i><span>티켓</span> </a>
+              <a href="#" class="btn-noti"> <i class="ti ti-bell"></i><span>알림</span> </a>
+              <a href="#" class="btn-login"> <i class="ti ti-user"></i><span>로그인</span> </a>
+            </div>
+          </div>
+        </header>
+
+        <main>
+          <div id="banners">
+            <div class="arrow-btn left-arrow">
+              <button><i class="ti ti-chevron-compact-left"></i></button>
+            </div>
+            <div class="arrow-btn right-arrow">
+              <button><i class="ti ti-chevron-compact-right"></i></button>
+            </div>
+            <div class="banners-viewport">
+              <div class="banners-container">
+                <div class="banner">
+                  <div class="banner-img">
+                    <img src="img/banner/avatar.avif" alt="배너_아바타" />
+                  </div>
+                  <div class="banner-text">
+                    <div class="banner-text-name">
+                      <span>아바타 - 불과 재</span>
+                    </div>
+                    <div class="banner-text-desc">
+                      <span
+                        >역대급 스케일과 액션, 오직 〈아바타〉만이 선사할 압도적 시네마틱 경험을 반드시 극장에서
+                        확인하라!</span
+                      >
+                    </div>
+                    <div class="banner-text-age"></div>
+                    <button class="ticketing-btn"><span>예매하기</span></button>
+                  </div>
+                </div>
+
+                <div class="banner">
+                  <div class="banner-img">
+                    <img src="img/banner/만약에우리.jpg" alt="배너_만약에우리" />
+                  </div>
+                  <div class="banner-text">
+                    <div class="banner-text-name">
+                      <span>만약에 우리</span>
+                    </div>
+                    <div class="banner-text-desc">
+                      <span>가장 초라했던 그때, 가장 눈부시던 우리</span>
+                    </div>
+                    <div class="banner-text-age"></div>
+                    <button class="ticketing-btn"><span>예매하기</span></button>
+                  </div>
+                </div>
+
+                <div class="banner">
+                  <div class="banner-img">
+                    <img src="img/banner/왕사남.jpg" alt="배너_왕과사는남자" />
+                  </div>
+                  <div class="banner-text">
+                    <div class="banner-text-name">
+                      <span>왕과 사는 남자</span>
+                    </div>
+                    <div class="banner-text-desc">
+                      <span>1457년 청령포, 역사가 지우려 했던 이야기</span>
+                    </div>
+                    <div class="banner-text-age"></div>
+                    <button class="ticketing-btn"><span>예매하기</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul class="dots">
+              <li class="on"></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div id="now-showing">
+            <div class="now-showing-title">
+              <ul>
+                <li class="on"><a href="#">현재상영작</a></li>
+                <li><a href="#">상영예정작</a></li>
+                <li><a href="#">아트하우스</a></li>
+                <li><a href="#">ICECON</a></li>
+                <li><a href="#">CGV단독</a></li>
+              </ul>
+            </div>
+
+            <div class="now-showing-container">
+              <div class="container-left">
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster1.jpg" alt="포스터_아바타3" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>아바타 - 불과 재</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_12.webp" alt="12세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>25.12.17. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>3시간 17분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>SF, 액션, 어드벤처</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>95%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>641.6만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>15.6만</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        월드 와이드 흥행 불멸의 1위 아바타 시리즈의 세 번째 이야기!<br />판도라를 위협하는 재의 부족, 더
+                        이상 인간만이 적이 아니다!<br />
+                        12월, 모두의 운명을 뒤흔들 거대한 전투가 시작된다!
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster3.jpg" alt="포스터_프로젝트Y" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>프로젝트 Y</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_15.webp" alt="15세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>26.01.21. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 48분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>드라마</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/egg.png" alt="없음" />
+                        <span>?</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>2,153</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>1.1만</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        화려한 도시, 다른 내일을 꿈꾸며 살아가던 미선과 도경.<br />
+                        두 사람은 우연히 알게 된 검은 돈과<br />
+                        숨겨진 금괴를 훔쳐 새로운 기회를 만들고<br />
+                        돈과 금괴에 얽힌 이들이 미선과 도경을 뒤쫓기 시작하는데…
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster5.jpg" alt="포스터_시라트" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>시라트</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_15.webp" alt="15세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>26.01.21. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 55분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>드라마</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>91%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>2,603만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span></span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        전례 없는 충격의 논쟁작<br />
+                        이 영화를 감당할 수 있는가
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster7.jpg" alt="포스터_하트맨" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>하트맨</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_12.webp" alt="12세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>26.01.14. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 40분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>기타</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>89%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>18.2만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>9,544</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        돌아온 남자 승민(권상우)이<br />
+                        다시 만난 첫사랑을 놓치지 않기 위해 고군분투하지만,<br />
+                        그녀에게 절대 말할 수 없는 비밀이 생기며 벌어지는 코미디
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster9.jpg" alt="포스터_731" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>731</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_15.webp" alt="15세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>26.01.21 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>2시간 5분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>드라마</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/broken.png" alt="깨짐" />
+                        <span>64%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>1만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>1,294</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        잊지 말아야 할 것이 있다!<br />
+                        2차 세계대전 당시 일본은 비밀리에 세균전을 준비하기 위해<br />
+                        절밀(絶密·절대기밀)의 공간 731 부대를 창설한다.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container-right">
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster2.jpg" alt="포스터_만약에우리" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>만약에 우리</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_15.webp" alt="15세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>25.12.31 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 55분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>멜로/로맨스</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>97%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>166.5만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>2.6만</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        가장 초라했던 그때,<br />
+                        가장 눈부시던 우리<br />
+                        “만약에 우리...”
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster4.jpg" alt="포스터_신의악단" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>신의 악단</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_15.webp" alt="15세" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>25.12.31. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 50분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>드라마</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>86%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>48.4만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>2.6만</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        대북제재로 돈줄이 막힌 북한.<br />
+                        국제사회의 2억 달러 지원을 얻기 위한 마지막 방법은 단 하나!<br />
+                        보위부는 당의 명령을 받고,<br />
+                        북한 최초의 가짜 찬양단을 만드는 임무를 맡는다.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster6.jpg" alt="포스터_라퓨타" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>천공의 성 라퓨타</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_a.webp" alt="전체" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>26.01.21. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>2시간 4분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>애니메이션</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>99%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>2.1만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>1.2만</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        전설의 공중도시 ‘라퓨타’를 향한<br />
+                        거대한 여정이 시작된다!
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster11.jpg" alt="포스터_주토피아" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>주토피아</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_a.webp" alt="전체" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>25.11.26. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 48분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>애니메이션</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>99%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>847만</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>99만</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        더 화려해진 세계, 더 넓어진 주토피아!<br />
+                        디즈니의 가~~장 사랑스러운 콤비 '주디'와 '닉'이 돌아온다!<br />
+                        <b>11월, 초특급 추적 어드벤처가 펼쳐진다!</b>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="movie">
+                  <a href="#" class="movie-poster">
+                    <img src="img/poster/poster10.jpg" alt="포스터_슈가" />
+                  </a>
+                  <div class="movie-text">
+                    <div class="movie-name">
+                      <span>슈가</span>
+                    </div>
+                    <div class="movie-info info1">
+                      <div class="movie-info-age">
+                        <img src="img/poster/age_a.webp" alt="전체" />
+                      </div>
+                      <div class="movie-info-date">
+                        <span>26.01.21. 개봉</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-time">
+                        <span>1시간 46분</span>
+                      </div>
+                      <span>&#124;</span>
+                      <div class="movie-info-genre">
+                        <span>드라마, 가족</span>
+                      </div>
+                    </div>
+                    <div class="movie-info info2">
+                      <div class="movie-info-score">
+                        <img src="img/goldenegg.png" alt="골든에그" />
+                        <span>95%</span>
+                      </div>
+                      <div class="movie-info-view">
+                        <i class="ti ti-eye"></i>
+                        <span>6,122</span>
+                      </div>
+                      <div class="movie-info-like">
+                        <i class="ti ti-heart"></i>
+                        <span>511</span>
+                      </div>
+                    </div>
+                    <div class="movie-desc">
+                      <span>
+                        1형 당뇨병 판정을 받은 어린 아들 ‘동명’을 위해<br />
+                        고군분투하다 세상을 바꾸어 버린 엄마의 이야기
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="now-showing-index">
+              <button class="on">1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>...</button>
+            </div>
+          </div>
+        </main>
+      </section>
+    </div>
+
+    <div class="bottom-page">
+      <footer>
+        <section id="top-footer">
+          <div class="top-footer-left">
+            <div class="social">
+              <a href="https://www.youtube.com/@CGVKOREA" target="_blank"><i class="ti ti-brand-youtube"></i></a>
+              <a href="https://www.instagram.com/cgv_korea/?hl=ko" target="_blank"
+                ><i class="ti ti-brand-instagram"></i
+              ></a>
+              <a href="https://www.facebook.com/CJCGV/?locale=ko_KR" target="_blank"
+                ><i class="ti ti-brand-facebook"></i
+              ></a>
+              <a href="https://x.com/CGV_KOREA" target="_blank"><i class="ti ti-brand-x"></i></a>
+            </div>
+          </div>
+          <div class="top-footer-right">
+            <div class="top-footer-menu">
+              <a href="#">이용약관</a>
+              <span>&#124;</span>
+              <a href="#"><b>개인정보처리방침</b></a>
+              <span>&#124;</span>
+              <a href="#"><b>위치서비스 이용약관</b></a>
+              <span>&#124;</span>
+              <a href="#">법적고지</a>
+              <span>&#124;</span>
+              <a href="#">편성원칙</a>
+              <span>&#124;</span>
+              <a href="#">채용정보</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="bottom-footer">
+          <div class="bottom-footer-left">
+            <div class="footer-logo">
+              <img src="img/CGV_logo.png" alt="로고_하단" />
+            </div>
+          </div>
+          <div class="bottom-footer-right">
+            <div class="bottom-footer-info">
+              <div>
+                <span>(04377) 서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</span>
+                <span>&#124;</span>
+                <span>통신판매업신고번호 : 2017-서울용산-0662</span>
+                <span>&#124;</span>
+                <span>사업자등록번호 : 104-81-45690</span>
+                <span>&#124;</span>
+                <span>호스팅사업자 : CJ올리브네트웍스</span>
+                <span>&#124;</span>
+                <span>대표이메일 : cjcgvmaster@cj.net</span>
+                <span>&#124;</span>
+                <span>고객센터 : 1544-1122, 월~금 09:00~18:00 (주말/공휴일 휴무)</span>
+                <br />
+                <span class="copy">COPYRIGHTS &copy; CGV. All Rights Reserved.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -88,18 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   ['#now-showing', '#events', '#offers', '#experiences'].forEach(setupScroll);
-
-  /* 4. 스크롤바 표시/숨김 (시간 지나면 사라짐) */
-  let isScrolling;
-  window.addEventListener(
-    'scroll',
-    () => {
-      document.body.classList.add('scrolling');
-      window.clearTimeout(isScrolling);
-      isScrolling = setTimeout(() => {
-        document.body.classList.remove('scrolling');
-      }, 1500);
-    },
-    { passive: true },
-  );
 });
