@@ -1195,6 +1195,10 @@ footer {
     padding-bottom: 0px;
   }
 
+  #now-showing .movie {
+    gap: 5px;
+  }
+
   #now-showing .movie .movie-poster {
     width: 100px;
     height: 142px;
@@ -1231,12 +1235,12 @@ footer {
   }
 
   #now-showing .movie .movie-info span {
-    font-size: 10px;
+    font-size: 10.5px;
   }
 
   #now-showing .movie .movie-desc {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 10.5px;
     color: #333;
     line-height: 14px;
   }
