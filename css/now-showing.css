@@ -471,6 +471,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  margin: 0 auto;
 }
 
 #now-showing .movie {
@@ -555,6 +556,11 @@ body {
   font-size: 22px;
   color: #333;
   line-height: 32px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* 보여줄 줄 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #now-showing .now-showing-index {
@@ -1227,20 +1233,20 @@ footer {
   }
 
   #now-showing .movie-text .info2 {
-    gap: 12px;
+    gap: 11px;
   }
 
   #now-showing .movie .movie-info i {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   #now-showing .movie .movie-info span {
-    font-size: 10.5px;
+    font-size: 11px;
   }
 
   #now-showing .movie .movie-desc {
     font-weight: 400;
-    font-size: 10.5px;
+    font-size: 11px;
     color: #333;
     line-height: 14px;
   }
